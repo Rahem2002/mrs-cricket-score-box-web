@@ -132,12 +132,22 @@ footer{
 
 <body>
 
+<div style="position:absolute;top:16px;right:16px;z-index:10">
+<select id="languageSelect" onchange="setLanguage(this.value)"
+style="padding:9px 12px;border-radius:10px;border:1px solid #ffffff55;
+background:#ffffffee;color:#075c3b;font-weight:bold">
+<option value="en">English</option>
+<option value="ps">پښتو</option>
+<option value="fa">دری</option>
+<option value="ur">اردو</option>
+</select>
+</div>
+
 <section class="hero">
   <img src="assets/mrs_logo.png" class="logo" alt="MRS Cricket Score Box">
   <h1>MRS Cricket Score Box</h1>
   <p>
-    Cricket scoring made simple — score matches, manage teams and
-    competitions, and follow public cricket from Upcoming to Live and Results.
+    <span id="heroText">Cricket scoring made simple — score matches, manage teams and competitions, and follow public cricket from Upcoming to Live and Results.</span>
   </p>
 
   <span class="badge">Live Scoring</span>
@@ -149,17 +159,17 @@ footer{
 <main>
 
 <section class="card download">
-  <h2>Download MRS Cricket Score Box</h2>
-  <p>The official MRS app download will be available here.</p>
+  <h2 id="downloadTitle">Download MRS Cricket Score Box</h2>
+  <p id="downloadText">The official MRS app download will be available here.</p>
 
   <div class="buttons">
-    <span class="btn primary disabled">Android APK — Coming Soon</span>
-    <span class="btn secondary disabled">iPhone / PWA — Coming Soon</span>
+    <span class="btn primary disabled" id="androidText">Android APK — Coming Soon</span>
+    <span class="btn secondary disabled" id="iphoneText">iPhone / PWA — Coming Soon</span>
   </div>
 </section>
 
 <section class="card">
-  <h2>Everything for Cricket Scoring</h2>
+  <h2 id="featuresTitle">Everything for Cricket Scoring</h2>
 
   <div class="features">
     <div class="feature">
@@ -185,11 +195,9 @@ footer{
 </section>
 
 <section class="card notice">
-  <h2>Official MRS Website</h2>
+  <h2 id="officialTitle">Official MRS Website</h2>
   <p>
-    This page will be the official sharing and download link for
-    MRS Cricket Score Box. Once publishing is complete, the same website
-    link can be shared directly from the MRS app.
+    <span id="officialText">This page is the official sharing and download website for MRS Cricket Score Box. The same website link can be shared directly from the MRS app.</span>
   </p>
 </section>
 
@@ -199,6 +207,73 @@ footer{
   <strong>MRS Cricket Score Box</strong><br><br>
   © 2026 MRS Cricket Score Box
 </footer>
+
+
+<script>
+const translations = {
+ en:{
+  hero:"Cricket scoring made simple — score matches, manage teams and competitions, and follow public cricket from Upcoming to Live and Results.",
+  downloadTitle:"Download MRS Cricket Score Box",
+  downloadText:"The official MRS app download will be available here.",
+  android:"Android APK — Coming Soon",
+  iphone:"iPhone / PWA — Coming Soon",
+  features:"Everything for Cricket Scoring",
+  official:"Official MRS Website",
+  officialText:"This page is the official sharing and download website for MRS Cricket Score Box. The same website link can be shared directly from the MRS app."
+ },
+ ps:{
+  hero:"د کرکټ سکور کول اسانه کړئ — میچونه سکور کړئ، ټیمونه او سیالۍ اداره کړئ، او عام میچونه له Upcoming څخه تر Live او Results پورې تعقیب کړئ.",
+  downloadTitle:"MRS Cricket Score Box ډاونلوډ کړئ",
+  downloadText:"د MRS رسمي اپ ډاونلوډ به دلته موجود وي.",
+  android:"Android APK — ډېر ژر",
+  iphone:"iPhone / PWA — ډېر ژر",
+  features:"د کرکټ سکور لپاره بشپړ سیستم",
+  official:"د MRS رسمي ویب‌سایټ",
+  officialText:"دا د MRS Cricket Score Box رسمي شریکولو او ډاونلوډ ویب‌سایټ دی. همدا ویب لینک به مستقیم د MRS اپ څخه هم شریکېږي."
+ },
+ fa:{
+  hero:"امتیازدهی کریکت را آسان کنید — مسابقات را امتیازدهی کنید، تیم‌ها و رقابت‌ها را مدیریت کنید و مسابقات عمومی را از Upcoming تا Live و Results دنبال کنید.",
+  downloadTitle:"دانلود MRS Cricket Score Box",
+  downloadText:"دانلود رسمی برنامه MRS در اینجا در دسترس خواهد بود.",
+  android:"Android APK — به‌زودی",
+  iphone:"iPhone / PWA — به‌زودی",
+  features:"سیستم کامل امتیازدهی کریکت",
+  official:"وب‌سایت رسمی MRS",
+  officialText:"این وب‌سایت رسمی اشتراک‌گذاری و دانلود MRS Cricket Score Box است. همین لینک مستقیماً از برنامه MRS نیز قابل اشتراک خواهد بود."
+ },
+ ur:{
+  hero:"کرکٹ اسکورنگ کو آسان بنائیں — میچ اسکور کریں، ٹیموں اور مقابلوں کو منظم کریں اور عوامی میچز کو Upcoming سے Live اور Results تک فالو کریں۔",
+  downloadTitle:"MRS Cricket Score Box ڈاؤن لوڈ کریں",
+  downloadText:"MRS ایپ کا آفیشل ڈاؤن لوڈ یہاں دستیاب ہوگا۔",
+  android:"Android APK — جلد آرہا ہے",
+  iphone:"iPhone / PWA — جلد آرہا ہے",
+  features:"کرکٹ اسکورنگ کا مکمل نظام",
+  official:"MRS کی آفیشل ویب سائٹ",
+  officialText:"یہ MRS Cricket Score Box کی آفیشل شیئرنگ اور ڈاؤن لوڈ ویب سائٹ ہے۔ یہی ویب لنک MRS ایپ سے بھی براہ راست شیئر کیا جا سکے گا۔"
+ }
+};
+
+function setLanguage(lang){
+ const t=translations[lang]||translations.en;
+
+ document.getElementById("heroText").textContent=t.hero;
+ document.getElementById("downloadTitle").textContent=t.downloadTitle;
+ document.getElementById("downloadText").textContent=t.downloadText;
+ document.getElementById("androidText").textContent=t.android;
+ document.getElementById("iphoneText").textContent=t.iphone;
+ document.getElementById("featuresTitle").textContent=t.features;
+ document.getElementById("officialTitle").textContent=t.official;
+ document.getElementById("officialText").textContent=t.officialText;
+
+ document.documentElement.lang=lang;
+ document.documentElement.dir=(lang==="en")?"ltr":"rtl";
+ localStorage.setItem("mrsLanguage",lang);
+}
+
+const saved=localStorage.getItem("mrsLanguage")||"en";
+document.getElementById("languageSelect").value=saved;
+setLanguage(saved);
+</script>
 
 </body>
 </html>
