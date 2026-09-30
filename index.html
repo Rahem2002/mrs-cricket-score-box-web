@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#075c3b">
+<title>MRS Cricket Score Box</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fffaf0;
+  color:#173b2d;
+}
+.hero{
+  min-height:440px;
+  background:linear-gradient(145deg,#064c32,#08754a);
+  color:#fff;
+  text-align:center;
+  padding:55px 20px 65px;
+}
+.logo{
+  width:115px;
+  height:115px;
+  object-fit:contain;
+  border-radius:25px;
+  background:#fff;
+  padding:7px;
+  box-shadow:0 10px 30px #0004;
+}
+.hero h1{
+  font-size:38px;
+  margin:20px 0 8px;
+}
+.hero p{
+  max-width:650px;
+  margin:0 auto 26px;
+  line-height:1.6;
+  opacity:.92;
+}
+.badge{
+  display:inline-block;
+  background:#ffffff20;
+  border:1px solid #ffffff45;
+  padding:8px 14px;
+  border-radius:30px;
+  margin:4px;
+}
+main{
+  max-width:1050px;
+  margin:-38px auto 0;
+  padding:0 18px 45px;
+}
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:26px;
+  margin-bottom:20px;
+  box-shadow:0 7px 25px #173b2d14;
+}
+.card h2{
+  margin-top:0;
+  color:#075c3b;
+}
+.download{
+  text-align:center;
+}
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:20px;
+}
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:14px 22px;
+  font-size:15px;
+  font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+}
+.primary{
+  background:#075c3b;
+  color:#fff;
+}
+.secondary{
+  background:#f2ead4;
+  color:#075c3b;
+}
+.disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:14px;
+}
+.feature{
+  background:#f6fbf7;
+  border:1px solid #dcebe2;
+  padding:18px;
+  border-radius:16px;
+}
+.feature strong{
+  display:block;
+  color:#075c3b;
+  margin-bottom:7px;
+}
+.notice{
+  background:#fff4cf;
+  border:1px solid #f0df9d;
+}
+footer{
+  text-align:center;
+  padding:30px 15px 40px;
+  color:#687970;
+}
+@media(max-width:600px){
+  .hero{padding-top:38px}
+  .hero h1{font-size:29px}
+  .logo{width:95px;height:95px}
+  .card{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <img src="assets/mrs_logo.png" class="logo" alt="MRS Cricket Score Box">
+  <h1>MRS Cricket Score Box</h1>
+  <p>
+    Cricket scoring made simple — score matches, manage teams and
+    competitions, and follow public cricket from Upcoming to Live and Results.
+  </p>
+
+  <span class="badge">Live Scoring</span>
+  <span class="badge">Tournaments</span>
+  <span class="badge">Public Matches</span>
+  <span class="badge">Offline + Online</span>
+</section>
+
+<main>
+
+<section class="card download">
+  <h2>Download MRS Cricket Score Box</h2>
+  <p>The official MRS app download will be available here.</p>
+
+  <div class="buttons">
+    <span class="btn primary disabled">Android APK — Coming Soon</span>
+    <span class="btn secondary disabled">iPhone / PWA — Coming Soon</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Everything for Cricket Scoring</h2>
+
+  <div class="features">
+    <div class="feature">
+      <strong>🏏 Live Scoring</strong>
+      Ball-by-ball cricket scoring and match management.
+    </div>
+
+    <div class="feature">
+      <strong>🏆 Tournaments</strong>
+      Manage tournaments, leagues, series, groups and squads.
+    </div>
+
+    <div class="feature">
+      <strong>📡 Public Cricket</strong>
+      Follow approved Upcoming, Live and completed Results.
+    </div>
+
+    <div class="feature">
+      <strong>👥 Teams & Players</strong>
+      Create teams, players and playing squads.
+    </div>
+  </div>
+</section>
+
+<section class="card notice">
+  <h2>Official MRS Website</h2>
+  <p>
+    This page will be the official sharing and download link for
+    MRS Cricket Score Box. Once publishing is complete, the same website
+    link can be shared directly from the MRS app.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <strong>MRS Cricket Score Box</strong><br><br>
+  © 2026 MRS Cricket Score Box
+</footer>
+
+</body>
+</html>
